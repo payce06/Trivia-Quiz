@@ -30,3 +30,17 @@ const questions = [
 let currentQuestionIndex = 0;
 let score = 0;
 let timer;
+
+function startTimer() {
+    let timeLeft = 10;
+    timerElement.textContent = `Time Left: ${timeLeft}s`;
+
+    timer = setInterval(() => {
+        timeLeft--;
+        timerElement.textContent = `Time Left: ${timeLeft}s`;
+        if (timeLeft <= 0) {
+            clearInterval(timer);
+            nextButton.style.display = 'inline-block';
+        }
+    }, 1000);
+}
