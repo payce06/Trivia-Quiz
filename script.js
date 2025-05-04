@@ -65,3 +65,17 @@ function checkAnswer(selectedIndex) {
     console.log("Selected Index: ", selectedIndex);
     const currentQuestion = questions[currentQuestionIndex];
     const correctIndex = currentQuestion.correct;
+
+    const buttons = optionsContainer.querySelectorAll('button');
+    if  (selectedIndex == correctIndex) {
+        score++;
+        buttons[selectedIndex].classList.add('.correct');
+    } else {
+        buttons[selectedIndex].classList.add('incorrect');
+        buttons[correctIndex].classList.add('correct');
+    }
+
+    scoreElement.textContent = `Score: ${score}`;
+    clearInterval(timer);
+    nextButton.style.display = 'inline-block';
+}
