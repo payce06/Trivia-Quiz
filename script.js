@@ -44,3 +44,24 @@ function startTimer() {
         }
     }, 1000);
 }
+
+function displayQuestion() {
+    nextButton.style.display = 'none';
+    const currentQuestion = questions[currentQuestionIndex];
+    questionContainer.textContent = currentQuestion.question;
+
+    optionsContainer.innerHTML = '';
+    currentQuestion.options.forEach((option, index) => {
+        const button = document.createElement('button');
+        button.textContent = option;
+        button.onclick = () => checkAnswer(index);
+        optionsContainer.appendChild(button);
+    });
+
+    startTimer();
+}
+
+function checkAnswer(selectedIndex) {
+    console.log("Selected Index: ", selectedIndex);
+    const currentQuestion = questions[currentQuestionIndex];
+    const correctIndex = currentQuestion.correct;
