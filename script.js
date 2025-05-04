@@ -79,3 +79,21 @@ function checkAnswer(selectedIndex) {
     clearInterval(timer);
     nextButton.style.display = 'inline-block';
 }
+
+function nextQuestion() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        displayQuestion();
+    } else {
+        alert(`Game Over! Your final score is ${score}`);
+        resetGame();
+    }
+}
+
+function resetGame() {
+    currentQuestionIndex = 0;
+    score = 0;
+    scoreElement.textContent = `Score: ${score}`;
+    nextButton.style.display = 'none';
+    displayQuestion();
+}
