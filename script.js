@@ -97,3 +97,7 @@ function resetGame() {
     nextButton.style.display = 'none';
     displayQuestion();
 }
+
+nextButton.addEventListener('click', nextQuestion);
+
+displayQuestion();
